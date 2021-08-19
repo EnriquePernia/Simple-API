@@ -1,4 +1,4 @@
-FROM alpine:3.14.1
+FROM python:3.9.6
 
 #Mantainer
 LABEL mantainer="Enrique Pernia"
@@ -6,16 +6,14 @@ LABEL email="epernia1996@gmail.com"
 LABEL tier="Backend"
 
 #Install prerequisites
-RUN apt-get update && apt-get install -y \
-  python3.9.6 \
-  python3-pip
+#RUN apt-get update && apt-get install -y \
 
 #Install requirements
-COPY .requirements.txt /tmp
+COPY ./requirements.txt /tmp
 RUN pip3 install -r /tmp/requirements.txt
 
 #Copy project
-RUN ./app/ /app
+COPY ./app/ /app
 
 #Run command
 ENTRYPOINT ["uvicorn"]
