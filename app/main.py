@@ -1,21 +1,14 @@
-from fastapi import FastAPI
-
-from fastapi.testclient import TestClient
+from fastapi import FastAPI, status
 
 
 app = FastAPI()
 
+# Sample endpoint to get a succesfull response
+@app.get("/success", status_code=status.HTTP_200_OK)
+def success():
+    return {"msg": "Success"}
 
-@app.get("/")
-def read_main():
-    return {"msg": "Hello World"}
-
-#Testing: https://fastapi.tiangolo.com/tutorial/testing/
-client = TestClient(app)
-
-
-def test_read_main():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"msg": "Hello World"}
-
+# Sample endpoint to get an error response
+@app.get("/error", status_code=status.HTTP_403_FORBIDDEN)
+def error():
+    return {"msg": "Error"}
