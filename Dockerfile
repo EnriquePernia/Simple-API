@@ -13,9 +13,9 @@ COPY ./requirements.txt /tmp
 RUN pip3 install -r /tmp/requirements.txt
 
 #Copy project
-COPY ./app/ /app
+COPY ./app/ /project/app
+WORKDIR /project
 
 #Run command
-ENTRYPOINT ["uvicorn"]
-CMD ["app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
 
