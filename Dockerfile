@@ -7,6 +7,7 @@ LABEL tier="Backend"
 
 #Install prerequisites
 #RUN apt-get update && apt-get install -y \
+ENV PYTHONPATH=.
 
 #Install requirements
 COPY ./requirements.txt /tmp
