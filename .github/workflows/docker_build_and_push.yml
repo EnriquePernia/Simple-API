@@ -35,5 +35,5 @@ jobs:
           context: .
           push: true
           tags: |
-            gracia000/sampleAPI:${{ github.run_number }}
-            gracia000/sampleAPI:latest
+            gracia000/sample_api:${{ github.run_number }}
+            gracia000/sample_api:latest
