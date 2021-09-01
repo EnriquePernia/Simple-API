@@ -2,8 +2,7 @@ name: docker_builder
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
 
 jobs:
   main:
