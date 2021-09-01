@@ -31,5 +31,5 @@ jobs:
         run: docker build -t api-test .
       
       - name: Test container
-        run: docker run api-test pytest
+        run: docker run api-test pytest -vvv
       
