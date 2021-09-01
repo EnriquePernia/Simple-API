@@ -2,7 +2,6 @@
 Sample API for Automation Project
 
 ## Features
----
 ### Branch protection:
 - Protection rules are enabled for <b>main</b> ( Production ) and <b>development</b> branches, ensuring no one can commit directly to them. Instead, a new branch has to be created for each new feature as pull requests are the only thing accepted in protected branches.
 
