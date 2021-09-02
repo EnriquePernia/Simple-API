@@ -27,3 +27,6 @@ Sample API for Automation Project
 - run.sh script used on the first boot of the instance.
 - Security group assigned to the instance that ensures that i am the only one taht can acces via ssh, thus guaranteeing the safety of this.
 - Minikube as kubernetes cluster.
+
+### Problems found:
+- Minikube ingress addon needs adding domain name and translating it to origin IP address via /etc/hosts file, which for some reason gives me problems on AWS, so even though i started developing on clout, i ended doing it locally because i dont have time to investigate it (I spent a few hours reading about this). https://minikube.sigs.k8s.io/docs/handbook/addons/ingress-dns/ https://stackoverflow.com/questions/57855957/access-minikube-ingress-without-setting-etc-hosts.
