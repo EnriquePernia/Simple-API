@@ -15,3 +15,15 @@ Sample API for Automation Project
   
 ### Docker: 
 - Container based project for reproducibility, maintainability, and fit into a microservices ecosystem. The dockerfile is written using best practices, for better readability, maintainability, and shorter build times.
+
+### Kubernetes:
+- Kubernetes manifests that deploy and manage the API, create a service and an ingress load balancer that exposes the api and assing the /api endpoint.
+- Kubernetes manifests that create and manage jenkins and sonarqube
+- configmaps, pv, pvc, deployments, services, secrets, daemonsets...
+
+### AWS:
+- t3.medium instance to ensure we dont run low on resources.
+- Instance type = spot instance (74% savings compared to aun demand EC2)
+- run.sh script used on the first boot of the instance.
+- Security group assigned to the instance that ensures that i am the only one taht can acces via ssh, thus guaranteeing the safety of this.
+- Minikube as kubernetes cluster.
