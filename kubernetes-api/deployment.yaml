@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-api
+  labels:
+    app: simple-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-api
+  template:
+    metadata:
+      labels:
+        app: simple-api
+        tier: backend
+        type: test
+    spec:
+      containers:
+      - name: simple-api
+        image: gracia000/sample_api:latest
+        ports:
+        - containerPort: 80
