@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: db-dep
+        image: postgres:12
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5432
+        env: # No time for secrets(Future improvement)
+          - name: POSTGRES_USER
+            value: sonar
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres
+                key: password
+        volumeMounts:
+          - mountPath: /var/lib/postgresql
+            name: postgresql
+      volumes:
+        - name: postgresql
+          emptyDir: {}

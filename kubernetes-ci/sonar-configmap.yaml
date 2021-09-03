@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonar-configmap
+data:
+  SONAR_JDBC_URL: jdbc:postgresql://db:5432/sonar
+  SONAR_JDBC_USERNAME: sonar

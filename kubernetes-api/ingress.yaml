@@ -1,18 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sample-api-ingress
+  name: project-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
-  - host: sample-api
+  - host: ingress
     http:
       paths:
-      - path: /
+      - path: /api(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: api-service
             port:
               number: 80
+      - path: /sonar(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: sonar-svc
+            port:
+              number: 9000
